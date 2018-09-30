@@ -1,11 +1,323 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CjX-3j-Jll">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Hangman View Controller-->
+        <scene sceneID="RDC-L9-J6n">
+            <objects>
+                <viewController id="CjX-3j-Jll" customClass="HangmanViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N3B-bo-BzY"/>
+                        <viewControllerLayoutGuide type="bottom" id="lO3-ul-qoY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZQE-bx-hfS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QR6-DK-YUf">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joy-JZ-t9S">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="RG1-g4-Z0s"/>
+                                        </constraints>
+                                        <state key="normal" title="Start Over"/>
+                                        <connections>
+                                            <action selector="newGameButtonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="EKE-oG-lJh"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hangman1" translatesAutoresizingMaskIntoConstraints="NO" id="9DM-HK-GhL">
+                                        <rect key="frame" x="0.0" y="15" width="343" height="382"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfW-r8-f9c">
+                                        <rect key="frame" x="0.0" y="397" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="1hh-G5-6EM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect Guesses:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-xb-Wpp">
+                                        <rect key="frame" x="0.0" y="447" width="343" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="uPE-l6-bKm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="60Y-Cs-lIJ">
+                                        <rect key="frame" x="0.0" y="487" width="343" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lu-co-Nu9">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="A"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="jwI-Lu-b3F"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7G-Ud-rCm">
+                                                <rect key="frame" x="49" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="B"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="gJd-9c-NkF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPJ-Rj-2ZO">
+                                                <rect key="frame" x="98" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="C"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="Xfs-K8-f92"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eq4-Sa-d1l">
+                                                <rect key="frame" x="147" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="D"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="iU2-hf-woV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQZ-Qs-ICd">
+                                                <rect key="frame" x="196" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="E"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="eVz-97-A1J"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk1-fU-GWh">
+                                                <rect key="frame" x="245" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="F"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="tg1-Py-bWf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqU-Hv-G5b">
+                                                <rect key="frame" x="294" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="G"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="c8j-kF-aE5"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Nq0-Ae-ruS"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XP0-UQ-izk">
+                                        <rect key="frame" x="0.0" y="527" width="343" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8F9-yZ-Iij">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="H"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="vYi-Qw-3Gf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhX-cp-Qfe">
+                                                <rect key="frame" x="49" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="I"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="N8Y-38-mDY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-F4-yM5">
+                                                <rect key="frame" x="98" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="J"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="UwH-jo-BzW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZ6-Ez-SHu">
+                                                <rect key="frame" x="147" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="K"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="YZQ-dg-dlH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cc0-7e-df8">
+                                                <rect key="frame" x="196" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="L"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="xjO-HB-60Q"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCR-o6-xAY">
+                                                <rect key="frame" x="245" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="M"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="joo-BS-kLa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZB-6W-npE">
+                                                <rect key="frame" x="294" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="N"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="TpY-Lc-uvC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Fky-0s-AdD"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wMy-Vx-iUD">
+                                        <rect key="frame" x="0.0" y="567" width="343" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbv-Is-Pzf">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="O"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="9d7-mB-ojB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svT-Cz-hKO">
+                                                <rect key="frame" x="49" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="P"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="fVj-PR-3ff"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br3-F9-0O0">
+                                                <rect key="frame" x="98" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="Q"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="Xyy-Rn-zfc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSQ-Ic-Yqg">
+                                                <rect key="frame" x="147" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="R"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="F4k-FL-dP9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psx-JA-mRS">
+                                                <rect key="frame" x="196" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="S"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="Q2Z-6S-Mob"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96D-Rb-gOL">
+                                                <rect key="frame" x="245" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="T"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="rl5-R5-Prq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F08-Pm-5ep">
+                                                <rect key="frame" x="294" y="0.0" width="49" height="40"/>
+                                                <state key="normal" title="U"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="UIc-y2-L4d"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="AeX-kT-WNG"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-Rl-Ts6">
+                                        <rect key="frame" x="0.0" y="607" width="343" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvq-cQ-f6P">
+                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="40"/>
+                                                <state key="normal" title="V"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="NLr-dN-g02"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltN-YJ-L0d">
+                                                <rect key="frame" x="68.5" y="0.0" width="68.5" height="40"/>
+                                                <state key="normal" title="W"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="DW7-af-FGP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpE-gr-4k1">
+                                                <rect key="frame" x="137" y="0.0" width="69" height="40"/>
+                                                <state key="normal" title="X"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="4jN-B3-NoP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPb-et-zrN">
+                                                <rect key="frame" x="206" y="0.0" width="68.5" height="40"/>
+                                                <state key="normal" title="Y"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="m5b-B1-SAo"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzi-Pg-FAe">
+                                                <rect key="frame" x="274.5" y="0.0" width="68.5" height="40"/>
+                                                <state key="normal" title="Z"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="CjX-3j-Jll" eventType="touchUpInside" id="2M0-Hd-acv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="aXC-iy-KB1"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QR6-DK-YUf" firstAttribute="leading" secondItem="ZQE-bx-hfS" secondAttribute="leadingMargin" id="9VN-Ah-f0e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QR6-DK-YUf" secondAttribute="trailing" id="9o6-21-EE8"/>
+                            <constraint firstItem="QR6-DK-YUf" firstAttribute="top" secondItem="N3B-bo-BzY" secondAttribute="bottom" id="Afw-PU-qWZ"/>
+                            <constraint firstItem="lO3-ul-qoY" firstAttribute="top" secondItem="QR6-DK-YUf" secondAttribute="bottom" id="xJk-p2-tpD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="hangmanImageView" destination="9DM-HK-GhL" id="fcd-lv-kPb"/>
+                        <outlet property="incorrectGuessesLabel" destination="1h3-xb-Wpp" id="U2W-lp-RXU"/>
+                        <outlet property="wordLabel" destination="gfW-r8-f9c" id="E48-V0-mup"/>
+                        <outletCollection property="letterButton" destination="2lu-co-Nu9" collectionClass="NSMutableArray" id="dit-gO-ZKN"/>
+                        <outletCollection property="letterButton" destination="d7G-Ud-rCm" collectionClass="NSMutableArray" id="Ujk-gE-KFN"/>
+                        <outletCollection property="letterButton" destination="PPJ-Rj-2ZO" collectionClass="NSMutableArray" id="xC2-Gf-Qrf"/>
+                        <outletCollection property="letterButton" destination="Eq4-Sa-d1l" collectionClass="NSMutableArray" id="Gac-g0-Fve"/>
+                        <outletCollection property="letterButton" destination="hQZ-Qs-ICd" collectionClass="NSMutableArray" id="Y0U-6i-XE9"/>
+                        <outletCollection property="letterButton" destination="Bk1-fU-GWh" collectionClass="NSMutableArray" id="ncQ-NL-sUv"/>
+                        <outletCollection property="letterButton" destination="pqU-Hv-G5b" collectionClass="NSMutableArray" id="dmi-N4-yds"/>
+                        <outletCollection property="letterButton" destination="cZB-6W-npE" collectionClass="NSMutableArray" id="fSV-CT-slO"/>
+                        <outletCollection property="letterButton" destination="sCR-o6-xAY" collectionClass="NSMutableArray" id="vWo-lN-sEK"/>
+                        <outletCollection property="letterButton" destination="cc0-7e-df8" collectionClass="NSMutableArray" id="nx2-Pk-gOO"/>
+                        <outletCollection property="letterButton" destination="YZ6-Ez-SHu" collectionClass="NSMutableArray" id="nnD-CW-nc4"/>
+                        <outletCollection property="letterButton" destination="xfV-F4-yM5" collectionClass="NSMutableArray" id="38z-4u-8wH"/>
+                        <outletCollection property="letterButton" destination="HhX-cp-Qfe" collectionClass="NSMutableArray" id="sAM-jh-lA4"/>
+                        <outletCollection property="letterButton" destination="8F9-yZ-Iij" collectionClass="NSMutableArray" id="qWv-me-gSs"/>
+                        <outletCollection property="letterButton" destination="F08-Pm-5ep" collectionClass="NSMutableArray" id="vhW-Q7-pMu"/>
+                        <outletCollection property="letterButton" destination="96D-Rb-gOL" collectionClass="NSMutableArray" id="D5s-UJ-WKQ"/>
+                        <outletCollection property="letterButton" destination="psx-JA-mRS" collectionClass="NSMutableArray" id="k0z-4d-H6O"/>
+                        <outletCollection property="letterButton" destination="JSQ-Ic-Yqg" collectionClass="NSMutableArray" id="Jyj-ZF-d69"/>
+                        <outletCollection property="letterButton" destination="br3-F9-0O0" collectionClass="NSMutableArray" id="2La-5S-lPt"/>
+                        <outletCollection property="letterButton" destination="svT-Cz-hKO" collectionClass="NSMutableArray" id="egB-gJ-8Pp"/>
+                        <outletCollection property="letterButton" destination="sbv-Is-Pzf" collectionClass="NSMutableArray" id="vea-7O-OL9"/>
+                        <outletCollection property="letterButton" destination="mzi-Pg-FAe" collectionClass="NSMutableArray" id="i7R-We-Sjl"/>
+                        <outletCollection property="letterButton" destination="XPb-et-zrN" collectionClass="NSMutableArray" id="b1I-6t-jCk"/>
+                        <outletCollection property="letterButton" destination="bpE-gr-4k1" collectionClass="NSMutableArray" id="ofY-Fb-9oW"/>
+                        <outletCollection property="letterButton" destination="ltN-YJ-L0d" collectionClass="NSMutableArray" id="dsA-j7-XpN"/>
+                        <outletCollection property="letterButton" destination="Dvq-cQ-f6P" collectionClass="NSMutableArray" id="2hP-MO-4j6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uMu-9f-dwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1564" y="573"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="hangman1" width="200" height="200"/>
+    </resources>
 </document>
